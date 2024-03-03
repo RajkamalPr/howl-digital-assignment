@@ -1,7 +1,20 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f6f1;
 }
-
+.cursor{
+  background-color: #111;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position:fixed;
+  top:0;
+  left: 0;
+  pointer-events: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

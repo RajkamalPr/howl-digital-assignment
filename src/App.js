@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
 import './App.css';
+import Routes from './routes';
 
 function App() {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  })
+  const [cursorVariant, setCourserVariant] = useState('default')
+  useEffect(() => {
+    const mouseMove = e => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      })
+    }
+    window.addEventListener('mousemove', mouseMove);
+    return () => { window.removeEventListener('mousemove', mouseMove) }
+  }, [])
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16
+    },
+    text: {
+      x: mousePosition.x - 20,
+      y: mousePosition.y - 20,
+      backgroundColor: 'white',
+      mixBlendMode: 'difference',
+    }
+  }
+  const textEnter = () => setCourserVariant('text')
+  const textLeave = () => setCourserVariant('default')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1 onMouseEnter={textEnter} onMouseLeave={textLeave}>dghdgh</h1> */}
+      <motion.div className='cursor' variants={variants} animate={cursorVariant} />
+      <Routes textEnter={textEnter} textLeave={textLeave} />
     </div>
   );
 }
