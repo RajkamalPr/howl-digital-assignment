@@ -1,8 +1,15 @@
-# Getting Started with Create React App
+# Howl assingment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run react project do the follow steps
 
-## Available Scripts
+## Run command from below
+
+First step is initialize the packages which is mention in ower package.json file, you can run :
+
+### `npm init`
+
+This command initialize the packages which is required to run ower react project.\
+After completion of initialization run npm start, which will redirect react application page to the default browser.\
 
 In the project directory, you can run:
 
