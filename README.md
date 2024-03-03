@@ -1,10 +1,10 @@
-# Howl assingment
+# Howl Assignment
 
 To run react project do the follow steps
 
 ## Run command from below
 
-First step is initialize the packages which is mention in ower package.json file, you can run :
+First step is initialize the packages which is mention in our package.json file, you can run :
 
 ### `npm init`
 
